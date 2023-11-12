@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP del Servidor</title>
+</head>
+<body>
+    <h1>¡Hola desde la instancia de Amazon Linux!</h1>
+    <p id="ip-address">Obteniendo la dirección IP...</p>
+
+    <script>
+        // Obtiene la dirección IP del servidor utilizando una solicitud a un servicio externo
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-address').innerText = 'La dirección IP de esta instancia es: ' + data.ip;
+            })
+            .catch(error => {
+                console.error('Error al obtener la dirección IP:', error);
+            });
+    </script>
+</body>
+</html>
